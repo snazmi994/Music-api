@@ -1,4 +1,4 @@
-curl --include "https://still-waters-28437.herokuapp.com/music/${ID}"\
+curl --include "http://localhost:4741/music/${ID}"\
 --include \
 --request GET \
 --header "Authorization: Bearer ${TOKEN}"

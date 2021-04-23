@@ -53,18 +53,23 @@ router.patch('/music/:id', requireToken, removeBlanks, (req, res, next) => {
 // INDEX
 // GET /examples
 router.get('/music', requireToken, (req, res, next) => {
-  const musicData = req.body.music
-
-  Music.find()
-    .then(music => {
-      return music.map(music => music.toObject())
+  Music.find({owner: req.user.id}) // find only music for that user
+    .then(musics => {
+      return musics.map(music => music.toObject())
     })
-    .then(music => res.status(200).json(musicData))
+    .then(musics => res.status(200).json(musics)) // musics
     .catch(next)
 })
 
+// show
+router.get('/music/:id', requireToken, (req, res, next) => {
+  const musicData = req.body.music
+  Music.findById(req.params.id)
+    .then(handle404)
+    .then(music => res.status(200).json(musicData))
+    .catch(next)
+})
 // DESTROY
-// DELETE /examples/5a7db6c74d55bc51bdf39793
 router.delete('/music/:id', requireToken, (req, res, next) => {
   const musicData = req.body.music
   Music.findById(req.params.id)

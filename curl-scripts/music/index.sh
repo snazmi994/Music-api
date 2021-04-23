@@ -1,8 +1,5 @@
 
-API="https://still-waters-28437.herokuapp.com"
-URL_PATH="/music"
-
-curl "${API}${URL_PATH}" \
+curl 'http://localhost:4741/music' \
   --include \
   --request GET \
   --header "Authorization: Bearer ${TOKEN}"
