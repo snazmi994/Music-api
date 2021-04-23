@@ -1,5 +1,5 @@
 # sh curl-scripts/create.sh
-curl 'http://localhost:4741/music' \
+curl 'https://still-waters-28437.herokuapp.com/music' \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

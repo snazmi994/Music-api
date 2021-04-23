@@ -121,5 +121,3 @@ module.exports = router
 //     .then(() => res.sendStatus(204))
 //     .catch(next)
 // })
-
-// module.exports = router
