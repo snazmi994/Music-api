@@ -14,3 +14,5 @@ title : string
 artist : string
 fav_song : string
 owner : ref user
+
+<img src="https://i.imgur.com/REkjsZP.jpg" alt="Trulli" width="500" height="333">
