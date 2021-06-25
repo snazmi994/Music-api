@@ -37,7 +37,7 @@ router.post('/music', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// PATCH THE RIGHT WAY?
+// PATCH
 router.patch('/music/:id', requireToken, removeBlanks, (req, res, next) => {
   delete req.body.music.owner
   const musicData = req.body.music
@@ -83,46 +83,3 @@ router.delete('/music/:id', requireToken, (req, res, next) => {
 })
 
 module.exports = router
-// PATCH /users/:id
-// router.patch('/music/:id', requireToken, (req, res, next) => {
-//   const musicData = req.body.music
-//   const user = req.user
-//   Music.findById(req.params.id)
-//     .then(handle404)
-//     .then(music => music.updateOne(musicData))
-//     .then(() => res.sendStatus(204))
-//     .catch(next)
-// })
-
-// // INDEX
-// // GET /examples
-// router.get('/music', requireToken, (req, res, next) => {
-//   const user = req.user
-//   Music.find({owner: user._id})
-//     .then(handle404)
-//     .then(music => res.json({ music: music }))
-//     .catch(next)
-// })
-
-// //show
-// // GET /users/:id
-// router.get('/music/:id', requireToken, (req, res, next) => {
-//   const musicData = req.body.music
-//   const user = req.user
-//   Music.findById(req.params._id)
-//     .then(handle404)
-//     .then(music => res.json(musicData))
-//     .catch(next)
-// })
-
-// //delete
-//
-// router.delete('/music/:id', requireToken, (req, res, next) => {
-//   const musicData = req.body.music
-//   const user = req.user
-//   Music.findById(req.params.id)
-//     .then(handle404)
-//     .then(music => music.deleteOne(musicData))
-//     .then(() => res.sendStatus(204))
-//     .catch(next)
-// })

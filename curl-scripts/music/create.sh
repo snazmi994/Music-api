@@ -1,4 +1,4 @@
-API="https://still-waters-28437.herokuapp.com"
+API="http://localhost:4741"
 URL_PATH="/music"
 
 curl "${API}${URL_PATH}" \

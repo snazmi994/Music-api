@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const commentSchema = require('./comment')
 
 const musicSchema = new mongoose.Schema({
 
@@ -17,6 +18,7 @@ const musicSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  comments: [commentSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
