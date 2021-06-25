@@ -49,10 +49,10 @@ router.delete('/comments/:commentId/', requireToken, (req, res, next) => {
   console.log(musicId)
   Music.findById(musicId)
     .then(handle404)
-    .then(comment => {
-      // music.comments.id(commentId).delete()
-      comment.remove()
-      // return music.save()
+    .then(music => {
+      music.comments.id(commentId).remove()
+      // comment.remove()
+      return music.save()
     })
     .then(() => res.sendStatus(204))
     .catch(next)
